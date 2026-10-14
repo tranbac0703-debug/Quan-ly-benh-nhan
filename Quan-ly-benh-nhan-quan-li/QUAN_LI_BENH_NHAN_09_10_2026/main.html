@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ Thống Quản Lý Bệnh Nhân</title>
+  <link rel="stylesheet" href="main1.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=70&h=70" alt="Ảnh Logo Bệnh Viện" class="hospital-logo">
+        <div>
+            <h1 class="hospital-name">Bệnh Viện Đa Khoa Tâm Đức</h1>
+            <p class="hospital-slogan">Tận tâm chăm sóc - Trao trọn niềm tin</p>
+        </div>
+        <div class="doctor-badge">
+            <p>Bác sĩ phụ trách: <strong id="doctor-name">admin</strong></p>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar" id="sidebar-menu">
+        <div class="sidebar-search">
+            <i class='bx bx-search' id="btn-search"></i>
+            <input type="text" id="search-patient" placeholder="Tìm mã / tên bệnh án...">
+        </div>
+
+        <ul class="menu-list">
+            <li>
+                <a href="#sec-ho-so" class="nav-link active">
+                    <i class='bx bx-folder-open'></i>
+                    <span class="links_name">Hồ sơ bệnh án</span>
+                </a>
+            </li>
+            <li>
+                <a href="#sec-don-thuoc" class="nav-link">
+                    <i class='bx bx-plus-medical'></i>
+                    <span class="links_name">Kê đơn thuốc</span>
+                </a>
+            </li>
+            <li>
+                <a href="#sec-thanh-toan" class="nav-link">
+                    <i class='bx bx-credit-card'></i>
+                    <span class="links_name">Viện phí & QR</span>
+                </a>
+            </li>
+            <li>
+                <a href="#sec-lich-kham" class="nav-link">
+                    <i class='bx bx-calendar-event'></i>
+                    <span class="links_name">Lịch tái khám</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="#" class="logout-link">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Đăng xuất</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="content-wrapper">
+        <!-- HỒ SƠ BỆNH ÁN -->
+        <main class="form-container" id="sec-ho-so">
+            <form action="#" method="POST" class="login-form" onsubmit="event.preventDefault();">
+                <div class="user-information">
+                    <div class="heading-status-wrap">
+                        <h1>HỒ SƠ BỆNH ÁN</h1>
+                    </div>
+
+                    <h2>I. Thông tin cá nhân</h2>
+
+                    <div class="form-row">
+                        <label for="p-name">Họ và tên:</label>
+                        <input type="text" id="p-name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-dob">Ngày sinh:</label>
+                        <input type="date" id="p-dob" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-hometown">Quê quán:</label>
+                        <input type="text" id="p-hometown" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-cccd">Số CCCD:</label>
+                        <input type="text" id="p-cccd" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-phone">Số điện thoại:</label>
+                        <input type="tel" id="p-phone" required>
+                    </div>
+
+                    <h2>II. Tình trạng bệnh án & Lịch trình khám</h2>
+
+                    <div class="form-row">
+                        <label for="p-code">Mã bệnh án:</label>
+                        <input type="text" id="p-code" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-condition">Chẩn đoán ban đầu:</label>
+                        <textarea id="p-condition" rows="2" required></textarea>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <!-- KÊ ĐƠN THUỐC -->
+        <main class="container" id="sec-don-thuoc">
+            <div class="header">
+                <h2>Đơn thuốc bệnh nhân</h2>
+                <p>Mã đơn thuốc: <strong>1011</strong></p>
+            </div>
+
+            <!-- Form thêm thuốc -->
+            <div class="add-form">
+                <input type="text" id="maThuoc" placeholder="Mã thuốc (VD: T004)">
+                <input type="text" id="tenThuoc" placeholder="Tên thuốc">
+                <input type="number" id="soLuong" placeholder="Số lượng">
+                <input type="text" id="cachDung" placeholder="Cách dùng">
+                <button type="button" class="btn-add" onclick="themThuoc()">+ Thêm thuốc</button>
+            </div>
+
+            <!-- Bảng đơn thuốc -->
+            <table id="bangThuoc">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã thuốc</th>
+                        <th>Tên thuốc</th>
+                        <th>Số lượng</th>
+                        <th>Cách dùng</th>
+                        <th style="width: 80px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="danhSachThuoc">
+                    <tr>
+                        <td class="stt">1</td>
+                        <td>T001</td>
+                        <td>Paracetamol</td>
+                        <td>10</td>
+                        <td>Uống 2 lần/ngày</td>
+                        <td><button class="btn-delete" onclick="xoaThuoc(this)">✕</button></td>
+                    </tr>
+                    <tr>
+                        <td class="stt">2</td>
+                        <td>T002</td>
+                        <td>Vitamin C</td>
+                        <td>20</td>
+                        <td>Uống sau ăn</td>
+                        <td><button class="btn-delete" onclick="xoaThuoc(this)">✕</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Lời khuyên bác sĩ -->
+            <div class="doctor-advice-card">
+                <label for="loiKhuyen">Lời khuyên bác sĩ:</label>
+                <textarea id="loiKhuyen" rows="3" placeholder="Nhập lời khuyên hoặc dặn dò của bác sĩ tại đây..."></textarea>
+                
+                <div class="action-footer">
+                    <button type="button" class="btn-print" onclick="window.print()">
+                        <i class="bx bx-printer"></i> In đơn thuốc
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="main1.js"></script>
+    <script src="donthuoc.js"></script>
+</body>
+</html>

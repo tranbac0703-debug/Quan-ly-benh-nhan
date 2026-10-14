@@ -1,0 +1,504 @@
+ * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    header {
+        height: 70px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid #dbe2dc;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .hospital-logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    header > div:nth-child(2) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    .hospital-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f6838;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+    }
+
+    .hospital-slogan {
+        font-size: 14px;
+        color: #4b6b55;
+        font-style: italic;
+        margin-top: 2px;
+    }
+
+    .doctor-badge {
+        background-color: #d8e2dc;
+        padding: 8px 16px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 5px #86db83;
+        font-size: 13px;
+        color: #1a3826;
+    }
+
+    .doctor-badge strong {
+        font-weight: 700;
+        color: #000;
+    }
+    .sidebar {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 20%;
+        height: calc(100vh - 70px);
+        background-color: #ffffff;
+        border-right: 1px solid #dbe2dc;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 14px;
+        z-index: 99;
+    }
+
+    /* Ô tìm kiếm bệnh án */
+    .sidebar-search {
+        position: relative;
+        width: 100%;
+        height: 42px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-search i {
+        position: absolute;
+        left: 12px;
+        font-size: 20px;
+        color: #0f6838;
+    }
+
+    .sidebar-search input {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        border: 1px solid #dbe2dc;
+        outline: none;
+        background-color: #f6f8f6;
+        padding-left: 40px;
+        padding-right: 10px;
+        font-size: 13px;
+        color: #1a3826;
+        transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .sidebar-search input:focus {
+        border-color: #0f6838;
+        background-color: #ffffff;
+    }
+
+    .menu-list {
+        list-style: none;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+
+    .menu-list li a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        color: #1a3826;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+
+    .menu-list li a i {
+        font-size: 20px;
+        color: #4b6b55;
+        min-width: 22px;
+    }
+    .menu-list li a:hover,
+    .menu-list li a.active {
+        background-color: #eaf3ed;
+        color: #0f6838;
+        font-weight: 700;
+    }
+
+    .menu-list li a:hover i,
+    .menu-list li a.active i {
+        color: #0f6838;
+    }
+
+    .sidebar-footer {
+        border-top: 1px solid #dbe2dc;
+        padding-top: 14px;
+    }
+
+    .logout-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 14px;
+        color: #c53030;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background-color 0.2s;
+    }
+
+    .logout-link i {
+        font-size: 20px;
+    }
+
+    .logout-link:hover {
+        background-color: #fee2e2;
+    }
+
+    .content-wrapper {
+        margin-left: 20%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .login-form {
+        width: 100%;
+        max-width: 900px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 30px 40px;
+        box-shadow: 0 4px 20px rgb(226, 226, 194);
+        border: 1px solid #e1e7e2;
+    }
+
+    .heading-status-wrap h1 {
+        text-align: center;
+        color: #0f6838;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-bottom: 20px;
+    }
+
+    .user-information h2 {
+        color: #136a38;
+        font-size: 15px;
+        font-weight: 700;
+        margin: 22px 0 14px 0;
+        padding-bottom: 6px;
+        border-bottom: 2px solid #136a38;
+    }
+
+    .form-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        gap: 16px;
+        position: relative;
+    }
+
+    .form-row label {
+        width: 160px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .form-row input,
+    .form-row textarea {
+        flex: 1;
+        padding: 8px 14px;
+        font-size: 14px;
+        color: #333;
+        background-color: #ffffff;
+        border: 1.5px solid #a8bca0;
+        border-radius: 10px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-row input{
+        text-transform: uppercase;
+    }
+
+    .form-row textarea {
+        resize: vertical;
+    }
+    .btn-save {
+        margin-left: auto;
+        background-color: #0f6838;
+        color: #ffffff;
+        border: none;
+        padding: 10px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+
+    .btn-save:hover {
+        background-color: #0c4e2a;
+    }
+
+    .btn-save:active {
+        transform: scale(0.98);
+    }
+
+
+
+    /*Đơn thuốc*/
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 30px 40px;
+        margin: 0 auto;
+        box-shadow: 0 4px 20px rgb(226, 226, 194);
+        border: 1px solid #e1e7e2;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;  
+    }
+
+    .header p strong {
+        font-weight: 700;
+        color: #000;
+
+    }
+    .header p{
+        background-color: #d8e2dc;
+        padding: 8px 16px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 5px #86db83;
+        font-size: 13px;
+        color: #1a3826;
+        position: absolute;
+        right: 0;
+    }
+    .header h2 {
+        color: #0f6838;
+        margin: 0;
+        text-transform: uppercase;
+    }
+
+
+/*Đơn thuốc*/
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 40px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgb(226, 226, 194);
+    border: 1px solid #e1e7e2;
+
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;  
+}
+
+.header p strong {
+    font-weight: 700;
+    color: #000;
+
+}
+.header p{
+    background-color: #d8e2dc;
+        padding: 8px 16px;
+        border-radius: 6px;
+        box-shadow: 3px 3px 5px #86db83;
+        font-size: 13px;
+        color: #1a3826;
+        position: absolute;
+        right: 0;
+}
+.header h2 {
+    color: #0f6838;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+/* Form thêm thuốc */
+.add-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.add-form input {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    background-color: #ffffff;
+    border: 1.5px solid #a8bca0;
+    border-radius: 10px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+    
+.btn-add {
+    background-color: #0f6838;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-add:hover {
+    background-color: #51ff01;
+}
+
+/* Bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+th {
+    background-color: #0f6838;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+#bangThuoc tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+#bangThuoc tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Nút xóa di chuột mới hiện */
+.btn-delete {
+    display: none;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#bangThuoc tbody tr:hover .btn-delete {
+    display: inline-block;
+}
+
+.btn-delete:hover {
+    background-color: #d9363e;
+}
+
+/* Box Lời khuyên bác sĩ & Nút IN */
+.doctor-advice-card {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #eee;
+}
+
+.doctor-advice-card label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.doctor-advice-card textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.action-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-print {
+    background-color: #0f6838;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.btn-print:hover {
+    background-color: #51ff01;
+}
+
+/* Khi in đơn thuốc out ra giấy/PDF sẽ ẩn form thêm thuốc và cột thao tác */
+@media print {
+    .add-form,
+    .btn-delete,
+    th:last-child,
+    td:last-child {
+        display: none !important;
+    }
+}

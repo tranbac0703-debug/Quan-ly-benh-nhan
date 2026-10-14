@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ Thống Quản Lý Bệnh Nhân</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src = "images/hospital-logo.webp" class ="hospital-logo">
+        </div>
+        <div>
+            <h1 class="hospital-name">Bệnh Viện Đa Khoa Tâm Đức</h1>
+            <p class="hospital-slogan">Tận tâm chăm sóc - Trao trọn niềm tin</p>
+        </div>
+    </header>
+    <main class="login-container">
+        <form action="#" method="POST" class="login-form" id = "form-login">
+            <div class="login-heading">ĐĂNG NHẬP HỆ THỐNG</div>
+            <hr class = "duong-ke">
+            <input type="text" id = "username" class="account" placeholder="Nhập mã nhân viên" required>
+            <input type="password" id = "password" class="password" placeholder="Nhập mật khẩu" required> 
+            <button type="submit" class="submit">Đăng nhập</button>
+        </form>
+        <div class= "login-image-wrapper">
+            <img src= "images/login-form.webp" alt="background login">
+        </div>
+    </main>
+    <script src = "login.js"></script>
+</body>
+</html>
