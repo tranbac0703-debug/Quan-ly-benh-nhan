@@ -1,237 +1,264 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Thanh toán viện phí</title>
 
     <link rel="stylesheet" href="thanhtoan.css">
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- HEADER GIỐNG TRANG CHÍNH -->
-    <header class="hospital-header">
-        <img
-            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=70&h=70"
-            alt="Logo bệnh viện"
-            class="hospital-logo"
-        >
+    
+    <aside class="sidebar">
 
-        <div class="hospital-info">
-            <h1 class="hospital-name">BỆNH VIỆN ĐA KHOA TÂM ĐỨC</h1>
-            <p class="hospital-slogan">
-                Tận tâm chăm sóc - Trao trọn niềm tin
-            </p>
+        <div class="logo">
+            <div class="logo-icon">✚</div>
+
+            <h3>BỆNH VIỆN ĐA KHOA TÂM ĐỨC</h3>
+            <p>Tận tâm chăm sóc - Trao trọn niềm tin</p>
         </div>
 
-        <div class="doctor-badge">
-            Bác sĩ phụ trách: <strong>Admin</strong>
-        </div>
-    </header>
-
-    <!-- SIDEBAR GIỐNG TRANG CHÍNH -->
-    <nav class="sidebar">
-
-        <div class="sidebar-search">
-            <i class="bx bx-search"></i>
-            <input type="text" placeholder="Tìm mã / tên bệnh án...">
-        </div>
-
-        <ul class="menu-list">
+        <ul class="menu">
 
             <li>
-                <a href="../QUAN_LI_BENH_NHAN_09_10_2026/main.html#sec-ho-so" class="nav-link">
-                    <i class="bx bx-folder-open"></i>
-                    <span>Hồ sơ bệnh án</span>
+                <a href="#">
+                    <span>▣</span>
                 </a>
             </li>
 
             <li>
-                <a href="../QUAN_LI_BENH_NHAN_09_10_2026/main.html#sec-don-thuoc" class="nav-link">
-                    <i class="bx bx-plus-medical"></i>
-                    <span>Kê đơn thuốc</span>
+                <a href="#">
+                    <span>◈</span>
                 </a>
             </li>
 
             <li>
-                <a href="thanhtoan.html" class="nav-link active">
-                    <i class="bx bx-credit-card"></i>
-                    <span>Viện phí & QR</span>
+                <a href="#">
+                    <span>▤</span>
                 </a>
             </li>
 
             <li>
-                <a href="../QUAN_LI_BENH_NHAN_09_10_2026/main.html#sec-lich-kham" class="nav-link">
-                    <i class="bx bx-calendar-event"></i>
-                    <span>Lịch tái khám</span>
+                <a href="#" class="active">
+                    <span>💳</span>
+                    Thanh toán
                 </a>
             </li>
 
         </ul>
 
-        <div class="sidebar-footer">
-            <a href="../QUAN_LI_BENH_NHAN_09_10_2026/main.html" class="logout-link">
-                <i class="bx bx-log-out"></i>
-                <span>Quay lại trang chính</span>
-            </a>
+        <div class="logout">
+            <a href="#">⇥ &nbsp; Đăng xuất</a>
         </div>
 
-    </nav>
+    </aside>
 
-    <!-- NỘI DUNG THANH TOÁN -->
-    <main class="content-wrapper">
+    <main class="main">
 
-        <section class="payment-container">
+        
+        <header class="header">
 
-            <div class="payment-card">
+            <div class="page-title">
+            </div>
 
-                <div class="page-heading">
-                    <h1>THANH TOÁN VIỆN PHÍ</h1>
-                    <p>Thông tin chi phí khám chữa bệnh</p>
+            <div class="admin">
+                <span>Bác sĩ phụ trách: <b>Admin</b></span>
+
+                <div class="admin-avatar">
+                    A
                 </div>
+            </div>
 
-                <!-- I. THÔNG TIN BỆNH NHÂN -->
-                <h2 class="section-title">
-                    I. Thông tin bệnh nhân
-                </h2>
+        </header>
 
-                <div class="patient-info">
 
-                    <div class="info-box">
-                        <label>Mã bệnh án</label>
-                        <span>BA00125</span>
+        <section class="content">
+
+            <div class="container">
+
+                <div class="main-card">
+
+                    <h1 class="title">
+                       
+                    </h1>
+
+                    <div class="section-title">
+                        
                     </div>
 
-                    <div class="info-box">
-                        <label>Họ và tên bệnh nhân</label>
-                        <span>Nguyễn Văn A</span>
+                    <div class="patient-info">
+
+                        <div class="info-box">
+                            <label>Mã bệnh án</label>
+                            <span>BA00125</span>
+                        </div>
+
+                        <div class="info-box">
+                            <label>Họ và tên bệnh nhân</label>
+                            <span>Nguyễn Văn A</span>
+                        </div>
+
+                        <div class="info-box">
+                            <label>P-Code</label>
+                            <span>PC202600125</span>
+                        </div>
+
+                        <div class="info-box">
+                            <label>Ngày sinh</label>
+                            <span>12/05/2005</span>
+                        </div>
+
+                        <div class="info-box">
+                            <label>Số CCCD</label>
+                            <span>001205xxxxxx</span>
+                        </div>
+
+                        <div class="info-box">
+                            <label>Ngày thanh toán</label>
+                            <span>05/10/2026</span>
+                        </div>
+                    </div>
+                    <div class="section-title">
+                     
                     </div>
 
-                    <div class="info-box">
-                        <label>Mã bệnh nhân</label>
-                        <span>PC202600125</span>
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Nội dung</th>
+                                    <th>Số lượng</th>
+                                    <th>Đơn giá</th>
+                                    <th>Thành tiền</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td>Khám bệnh tổng quát</td>
+                                    <td>1</td>
+                                    <td>200.000đ</td>
+                                    <td class="price">200.000đ</td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td>Xét nghiệm máu</td>
+                                    <td>1</td>
+                                    <td>150.000đ</td>
+                                    <td class="price">150.000đ</td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td>Thuốc điều trị</td>
+                                    <td>2</td>
+                                    <td>100.000đ</td>
+                                    <td class="price">200.000đ</td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td>Chụp X-quang</td>
+                                    <td>1</td>
+                                    <td>250.000đ</td>
+                                    <td class="price">250.000đ</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
                     </div>
+                    <div class="payment-layout">
 
-                    <div class="info-box">
-                        <label>Ngày sinh</label>
-                        <span>12/05/2005</span>
-                    </div>
+                        <div class="payment-method">
 
-                    <div class="info-box">
-                        <label>Số CCCD</label>
-                        <span>001205xxxxxx</span>
-                    </div>
-
-                    <div class="info-box">
-                        <label>Ngày thanh toán</label>
-                        <span>05/10/2026</span>
-                    </div>
-
-                </div>
-
-                <!-- II. CHI TIẾT VIỆN PHÍ -->
-                <h2 class="section-title">
-                    II. Chi tiết viện phí
-                </h2>
-
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>STT</th>
-                                <th>Nội dung</th>
-                                <th>Số lượng</th>
-                                <th>Đơn giá</th>
-                                <th>Thành tiền</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Khám bệnh tổng quát</td>
-                                <td>1</td>
-                                <td>200.000đ</td>
-                                <td class="price">200.000đ</td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Xét nghiệm máu</td>
-                                <td>1</td>
-                                <td>150.000đ</td>
-                                <td class="price">150.000đ</td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Thuốc điều trị</td>
-                                <td>2</td>
-                                <td>100.000đ</td>
-                                <td class="price">200.000đ</td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>Chụp X-quang</td>
-                                <td>1</td>
-                                <td>250.000đ</td>
-                                <td class="price">250.000đ</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- III. PHƯƠNG THỨC THANH TOÁN -->
-                <h2 class="section-title">
-                    III. Phương thức thanh toán
-                </h2>
-
-                <div class="payment-layout">
-
-                    <div class="payment-method">
-
-                        <label class="method">
-                            <input type="radio" name="payment"
-                                   value="qr" checked>
-                            <i class="bx bx-qr-scan"></i>
-                            Chuyển khoản qua mã QR
-                        </label>
-
-                        <label class="method">
-                            <input type="radio" name="payment"
-                                   value="cash">
-                            <i class="bx bx-money"></i>
-                            Tiền mặt tại quầy
-                        </label>
-
-                        <div class="qr-box" id="qr-box">
-                            <h3>Quét mã QR để thanh toán</h3>
-
-                            <div class="qr">
-                                <i class="bx bx-qr-scan"></i>
-                                <span>QR CODE</span>
+                            <div class="section-title">
+                                
                             </div>
 
-                            <p>
-                                Sử dụng ứng dụng ngân hàng để quét mã.
-                            </p>
+                            <label class="method">
+                                <input type="radio" name="payment" checked>
+                                
+                            </label>
 
-                            <p class="qr-note">
-                                Đây là khu vực minh họa mã QR.
-                            </p>
+                            <label class="method">
+                                <input type="radio" name="payment">
+                                
+                            </label>
+
+                            <label class="method">
+                                <input type="radio" name="payment">
+                                
+                            </label>
+
+                            <labe class="method">
+                                <input type="radio" name="payment">
+                                
+                            </labe>
+                            <div class="qr-box">
+
+                                <div class="section-title">
+                                    Quét mã QR để thanh toán
+                                </div>
+
+                                <div class="qr">
+                                    <span class="qr-text">
+                                        QR CODE
+                                    </span>
+                                </div>
+
+                                <p>
+                                    Sử dụng ứng dụng ngân hàng để quét mã
+                                </p>
+
+                            </div>
+
+                        </div>
+                        <div class="summary">
+
+                            <div class="section-title">
+                                IV. Tổng thanh toán
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Tổng tiền dịch vụ</span>
+                                <b>800.000đ</b>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Bảo hiểm y tế</span>
+                                <b>-100.000đ</b>
+                            </div>
+
+                            <div class="summary-row">
+                                <span>Giảm trừ</span>
+                                <b>0đ</b>
+                            </div>
+
+                            <div class="summary-row total">
+                                <span>THÀNH TIỀN</span>
+                                <span>700.000đ</span>
+                            </div>
+
                         </div>
 
                     </div>
+                    <div class="button-area">
 
-                    <!-- IV. TỔNG THANH TOÁN -->
-                    <div class="summary">
+                        <button class="btn btn-cancel">
+                            Hủy
+                        </button>
 
+<<<<<<< HEAD
                         <h2 class="section-title">
                             IV. Tổng thanh toán
                         </h2>
@@ -260,23 +287,13 @@
                             <i class="bx bx-time-five"></i>
                             Trạng thái: Chưa thanh toán
                         </p>
+=======
+                        <button class="btn">
+                            ✓ Xác nhận thanh toán
+                        </button>
+>>>>>>> 0b6cce7bcd53978ea40f60a4971c3df62df85df1
 
                     </div>
-
-                </div>
-
-                <!-- NÚT THAO TÁC -->
-                <div class="button-area">
-
-                    <a href="../main.html" class="btn btn-cancel">
-                        Quay lại
-                    </a>
-
-                    <button type="button" class="btn btn-confirm"
-                            onclick="xacNhanThanhToan()">
-                        <i class="bx bx-check-circle"></i>
-                        Xác nhận thanh toán
-                    </button>
 
                 </div>
 
@@ -286,6 +303,5 @@
 
     </main>
 
-    
 </body>
 </html>

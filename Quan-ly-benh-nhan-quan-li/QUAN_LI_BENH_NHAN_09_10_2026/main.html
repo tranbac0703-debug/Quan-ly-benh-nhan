@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hệ Thống Quản Lý Bệnh Nhân</title>
   <link rel="stylesheet" href="main1.css">
+  <link rel="stylesheet" href="thanhtoan.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -41,7 +42,7 @@
                 </a>
             </li>
             <li>
-                <a href="../Thanh toan/thanhtoan.html" class="nav-link">
+                <a href="#sec-thanh-toan" class="nav-link">
                     <i class='bx bx-credit-card'></i>
                     <span class="links_name">Viện phí & QR</span>
                 </a>
@@ -55,7 +56,7 @@
         </ul>
 
         <div class="sidebar-footer">
-            <a href="#" class="logout-link">
+            <a href="login.html" class="logout-link">
                 <i class='bx bx-log-out'></i>
                 <span class="links_name">Đăng xuất</span>
             </a>
@@ -104,6 +105,11 @@
                     <div class="form-row">
                         <label for="p-code">Mã bệnh án:</label>
                         <input type="text" id="p-code" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-pcode">P-Code:</label>
+                        <input type="text" id="p-pcode">
                     </div>
 
                     <div class="form-row">
@@ -174,9 +180,85 @@
                 </div>
             </div>
         </main>
+
+        <!-- VIỆN PHÍ & THANH TOÁN -->
+        <main class="container" id="sec-thanh-toan">
+            <div class="header">
+                <h2>Viện phí &amp; thanh toán</h2>
+            </div>
+
+            <h3 class="tt-sec">I. Thông tin bệnh nhân</h3>
+            <div class="tt-info" id="tt-info">
+                <div class="tt-box"><label>Mã bệnh án</label><span data-src="p-code"></span></div>
+                <div class="tt-box"><label>Họ và tên bệnh nhân</label><span data-src="p-name"></span></div>
+                <div class="tt-box"><label>P-Code</label><span data-src="p-pcode"></span></div>
+                <div class="tt-box"><label>Ngày sinh</label><span data-src="p-dob" data-type="date"></span></div>
+                <div class="tt-box"><label>Số CCCD</label><span data-src="p-cccd"></span></div>
+                <div class="tt-box"><label>Ngày thanh toán</label><span id="tt-ngay"></span></div>
+            </div>
+
+            <h3 class="tt-sec">II. Dịch vụ đã sử dụng</h3>
+            <div class="add-form">
+                <input type="text" id="ttTenDV" placeholder="Tên dịch vụ">
+                <input type="number" id="ttSL" placeholder="Số lượng" min="1">
+                <input type="number" id="ttDonGia" placeholder="Đơn giá (đ)" min="0">
+                <button type="button" class="btn-add" id="ttThemDV">+ Thêm dịch vụ</button>
+            </div>
+            <table id="bangDichVu">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Nội dung</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                        <th style="width: 80px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="danhSachDV"></tbody>
+            </table>
+
+            <div class="tt-layout">
+                <div>
+                    <h3 class="tt-sec">III. Hình thức thanh toán</h3>
+                    <div class="tt-method-box">
+                        <label class="tt-method"><input type="radio" name="payment" value="Tiền mặt" checked> Tiền mặt</label>
+                        <label class="tt-method"><input type="radio" name="payment" value="Chuyển khoản (QR)" data-qr="1"> Chuyển khoản (QR)</label>
+                        <label class="tt-method"><input type="radio" name="payment" value="Thẻ ngân hàng"> Thẻ ngân hàng</label>
+                        <label class="tt-method"><input type="radio" name="payment" value="Ví điện tử" data-qr="1"> Ví điện tử</label>
+
+                        <div class="tt-qr-box" id="tt-qr-box" hidden>
+                            <div class="tt-qr-title">Quét mã QR để thanh toán</div>
+                            <div class="tt-qr"><span>QR CODE</span></div>
+                            <p>Sử dụng ứng dụng ngân hàng để quét mã</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="tt-sec">IV. Tổng thanh toán</h3>
+                    <div class="tt-summary">
+                        <div class="tt-row"><span>Tổng tiền dịch vụ</span><b id="tt-tong">0đ</b></div>
+                        <div class="tt-row"><span>Bảo hiểm y tế (-)</span><input type="number" id="tt-bhyt" value="100000" min="0"></div>
+                        <div class="tt-row"><span>Giảm trừ (-)</span><input type="number" id="tt-giam" value="0" min="0"></div>
+                        <div class="tt-row tt-total"><span>THÀNH TIỀN</span><span id="tt-thanhtien">0đ</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-footer tt-actions">
+                <button type="button" class="btn-print tt-outline" id="btn-huy-tt">Hủy</button>
+                <button type="button" class="btn-print tt-outline" id="btn-print-bill"><i class="bx bx-printer"></i> In bill</button>
+                <button type="button" class="btn-print" id="btn-xacnhan-tt">✓ Xác nhận thanh toán</button>
+            </div>
+        </main>
     </div>
+
+    <!-- Bill in (ẩn trên màn hình, JS dựng từ dữ liệu của trang) -->
+    <div id="bill"></div>
 
     <script src="main1.js"></script>
     <script src="donthuoc.js"></script>
+    <script src="thanhtoan.js"></script>
 </body>
 </html>
