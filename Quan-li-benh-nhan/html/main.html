@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hệ Thống Quản Lý Bệnh Nhân</title>
+  <link rel="stylesheet" href="../css/main1.css">
+  <link rel="stylesheet" href="../css/thanhtoan.css">
+  <link rel="stylesheet" href="../css/lichhen.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=70&h=70" alt="Ảnh Logo Bệnh Viện" class="hospital-logo">
+        <div>
+            <h1 class="hospital-name">Bệnh Viện Đa Khoa Tâm Đức</h1>
+            <p class="hospital-slogan">Tận tâm chăm sóc - Trao trọn niềm tin</p>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar-menu">
+        <div class="sidebar-search">
+            <i class='bx bx-search' id="btn-search"></i>
+            <input type="text" id="search-patient" placeholder="Tìm hồ sơ bệnh án / CCCD">
+        </div>
+
+        <ul class="menu-list">
+            <li>
+                <a href="#sec-ho-so" class="nav-link active">
+                    <i class='bx bx-folder-open'></i>
+                    <span class="links_name">Hồ sơ bệnh án</span>
+                </a>
+            </li>
+            <li>
+                <a href="#sec-don-thuoc" class="nav-link">
+                    <i class='bx bx-plus-medical'></i>
+                    <span class="links_name">Kê đơn thuốc</span>
+                </a>
+            </li>
+            <li>
+                <a href="#sec-lich-kham" class="nav-link">
+                    <i class="bx bx-calendar"></i>
+                    <span class="links_name">Lịch hẹn tái khám</span>
+                </a>
+            </li>
+            <li>
+                <a href="#sec-thanh-toan" class="nav-link">
+                    <i class='bx bx-credit-card'></i>
+                    <span class="links_name">Viện phí & QR</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <a href="login.html" class="logout-link">
+                <i class='bx bx-log-out'></i>
+                <span class="links_name">Đăng xuất</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="content-wrapper">
+        <main class="form-container" id="sec-ho-so">
+            <form id="form-ho-so" action="#" method="POST" class="login-form">
+                <div class="user-information">
+                    <div class="heading-status-wrap">
+                        <h1>HỒ SƠ BỆNH ÁN</h1>
+                    </div>
+
+                    <h2>I. Thông tin cá nhân</h2>
+
+                    <div class="form-row">
+                        <label for="p-name">Họ và tên:</label>
+                        <input type="text" id="p-name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-dob">Ngày sinh:</label>
+                        <input type="date" id="p-dob" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-hometown">Quê quán:</label>
+                        <input type="text" id="p-hometown" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-cccd">Số CCCD:</label>
+                        <input type="text" id="p-cccd" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="p-phone">Số điện thoại:</label>
+                        <input type="tel" id="p-phone" required>
+                    </div>
+
+                    <h2>II. Tình trạng bệnh án</h2>
+
+                    <div class="form-row">
+                        <label for="p-code">Mã bệnh án:</label>
+                        <input type="text" id="p-code" required>
+                    </div>
+                    <div class="form-row">
+                        <label for="p-condition">Chẩn đoán ban đầu:</label>
+                        <textarea id="p-condition" rows="2" required></textarea>
+                    </div>
+
+                    <div class="action-footer">
+                        <button type="submit" class="btn-print">Lưu thay đổi hồ sơ</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <main class="container" id="sec-don-thuoc">
+            <div class="header">
+                <h2>Đơn thuốc bệnh nhân</h2>
+            </div>
+
+            <div class="add-form">
+                <input type="text" id="tenThuoc" placeholder="Tên thuốc">
+                <input type="number" id="soLuong" placeholder="Số lượng" min="1">
+                <input type="number" id="giaThuoc" placeholder="Đơn giá thuốc (đ)" min="0" step="1">
+                <input type="text" id="cachDung" placeholder="Cách dùng">
+                <button type="button" class="btn-add" onclick="themThuoc()">Thêm thuốc</button>
+            </div>
+
+            <table id="bangThuoc">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên thuốc</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Cách dùng</th>
+                        <th style="width: 80px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="danhSachThuoc"></tbody>
+            </table>
+
+            <div class="doctor-advice-card">
+                <label for="loiKhuyen">Lời khuyên bác sĩ:</label>
+                <textarea id="loiKhuyen" rows="3" placeholder="Nhập lời khuyên hoặc dặn dò của bác sĩ tại đây..."></textarea>
+                
+            </div>
+        </main>
+
+        <main class="container" id="sec-lich-kham">
+            <div class="header">
+                <h2>Lịch hẹn tái khám</h2>
+            </div>
+
+            <form id="form-lich-hen" class="appointment-form">
+                <div class="appointment-fields">
+                    <div class="appointment-field">
+                        <label for="hen-ngay">Ngày tái khám</label>
+                        <input type="date" id="hen-ngay" required>
+                    </div>
+                    <div class="appointment-field">
+                        <label for="hen-gio">Giờ tái khám</label>
+                        <input type="time" id="hen-gio" required>
+                    </div>
+                    <div class="appointment-field">
+                        <label for="hen-bac-si">Bác sĩ phụ trách</label>
+                        <input type="text" id="hen-bac-si" required>
+                    </div>
+                    <div class="appointment-field appointment-field-wide">
+                        <label for="hen-ghi-chu">Ghi chú</label>
+                        <textarea id="hen-ghi-chu" rows="2"></textarea>
+                    </div>
+                </div>
+            </form>
+        </main>
+
+        <main class="container" id="sec-thanh-toan">
+            <div class="header">
+                <h2>Viện phí và thanh toán</h2>
+            </div>
+            <h3 class="tt-sec">I. Dịch vụ đã sử dụng</h3>
+            <div class="add-form">
+                <input type="text" id="ttTenDV" placeholder="Tên dịch vụ">
+                <input type="number" id="ttSL" placeholder="Số lượng" min="1">
+                <input type="number" id="ttDonGia" placeholder="Đơn giá (đ)" min="0">
+                <button type="button" class="btn-add" id="ttThemDV">Thêm dịch vụ</button>
+            </div>
+            <table id="bangDichVu">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Nội dung</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                        <th>Thành tiền</th>
+                        <th style="width: 80px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody id="danhSachDV"></tbody>
+            </table>
+
+            <div class="tt-layout">
+                <div>
+                    <h3 class="tt-sec">II. Hình thức thanh toán</h3>
+                    <div class="tt-method-box">
+                        <label class="tt-method"><input type="radio" name="payment" value="Tiền mặt" checked> Tiền mặt</label>
+                        <label class="tt-method"><input type="radio" name="payment" value="Chuyển khoản (QR)" data-qr="1"> Chuyển khoản (QR)</label>
+                        <label class="tt-method"><input type="radio" name="payment" value="Thẻ ngân hàng"> Thẻ ngân hàng</label>
+                        <label class="tt-method"><input type="radio" name="payment" value="Ví điện tử" data-qr="1"> Ví điện tử</label>
+
+                        <div class="tt-qr-box" id="tt-qr-box" hidden>
+                            <div class="tt-qr-title">Quét mã QR để thanh toán</div>
+                            <div class="tt-qr"><span>QR CODE</span></div>
+                            <p>Sử dụng ứng dụng ngân hàng để quét mã</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="tt-sec">III. Tổng thanh toán</h3>
+                    <div class="tt-summary">
+                        <div class="tt-row"><span>Tổng tiền dịch vụ</span><b id="tt-tong">0đ</b></div>
+                        <div class="tt-row"><span>Bảo hiểm y tế (vnd)</span><input type="number" id="tt-bhyt" value="100000" min="0"></div>
+                        <div class="tt-row"><span>Giảm trừ (vnd)</span><input type="number" id="tt-giam" value="0" min="0"></div>
+                        <div class="tt-row tt-total"><span>THÀNH TIỀN</span><span id="tt-thanhtien">0đ</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-footer tt-actions">
+                <button type="button" class="btn-print tt-outline" id="btn-huy-tt">Hủy</button>
+                <button type="button" class="btn-print" id="btn-xacnhan-tt">✓ Xác nhận thanh toán</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main1.js"></script>
+    <script src="../js/donthuoc.js"></script>
+    <script src="../js/lichhen.js"></script>
+    <script src="../js/thanhtoan.js"></script>
+</body>
+</html>

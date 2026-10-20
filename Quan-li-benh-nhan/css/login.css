@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    color:#fff;
+    font-family: Arial, Helvetica, sans-serif,sans-serif;
+    width: 100%;
+    height: 100vh;
+    background: url(../images/background-login1.webp);
+}
+
+header {
+  position: relative;
+  top:0;
+  padding: 24px;
+  text-align: center;
+  width: 100%;
+}
+.hospital-logo{
+    display:inline-block;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+.hospital-name{
+    font-size: 40px;
+    font-weight: 700;
+    font-size: 50px;
+    color:#ffffff;
+    letter-spacing: 0.5px;
+}
+.hospital-slogan {
+    font-style: italic;
+    color: #ffffff;
+    margin-top: 4px;
+    font-size:25px;
+}
+.login-container {
+  border-radius: 16px;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  width: 40%;
+  height: 400px;
+  margin:50px auto;
+  display: flex;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.login-container div img {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  mask-image: linear-gradient(to right, transparent 0%, black 35%);}
+.login-form{
+    position: relative;
+    width:100%;
+    padding: 40px 32px;
+    background-color: #ffffff;
+}
+.login-heading {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: green;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.duong-ke {
+  width: 100%;
+  margin-bottom: 24px;
+}
+.account,.password {
+  width: 100%;
+  padding: 13px 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  border: 1px solid green;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.account::placeholder,
+.password::placeholder {
+  color: #94a3b8;
+}
+.submit {
+  width: 100%;
+  padding: 13px;
+  position: relative;
+  margin-top: 8px;
+  background-color: green;
+  color: #1e3a2f;
+  border:none;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+.submit:hover {
+    background-color: #51ff01;
+}

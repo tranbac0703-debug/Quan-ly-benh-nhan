@@ -1,0 +1,67 @@
+/* Bố cục chia ô cho phần nhập lịch hẹn */
+.appointment-fields {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.appointment-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.appointment-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #222;
+}
+
+.appointment-field input,
+.appointment-field textarea {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1.5px solid #a8bca0;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+}
+
+.appointment-field input:focus,
+.appointment-field textarea:focus {
+    border-color: #0f6838;
+}
+
+/* Ô Ghi chú trải dài hết hàng */
+.appointment-field-wide {
+    grid-column: span 3;
+}
+
+.appointment-list-title {
+    margin: 28px 0 14px;
+    color: #136a38;
+    font-size: 15px;
+}
+
+.appointment-table-wrap {
+    overflow-x: auto;
+}
+
+#bangLichHen {
+    min-width: 620px;
+}
+
+#bangLichHen .btn-delete {
+    display: inline-block;
+}
+
+@media (max-width: 700px) {
+    .appointment-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .appointment-field-wide {
+        grid-column: auto;
+    }
+}
